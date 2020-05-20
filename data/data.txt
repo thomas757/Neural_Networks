@@ -1,2 +1,3 @@
 Artist, Title,
-Michael Jackson, Rock with you, 10
+10cc, Dreadlock Holiday, 11 (Snare Drum), 12 (Drumset)
+10cc, I'm not in love, 11 (Concert Snare Drum), 12 (Concert Snare Drum), 13 (Stamp)
