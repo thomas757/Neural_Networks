@@ -1,3 +1,52 @@
-Artist, Title,
-10cc, Dreadlock Holiday, 11 (Snare Drum), 12 (Drumset)
-10cc, I'm not in love, 11 (Concert Snare Drum), 12 (Concert Snare Drum), 13 (Stamp)
+Artist, Title
+10cc, Dreadlock Holiday
+10cc, I'm not in love
+10cc, The Things We Do For Love
+1910 Fruitgum Company, Simon Says
+38 Special, Caught Up In You
+911, The Day We Found Love
+ABC, Poison Arrow
+ABC, The Look Of Love
+Ace, How Long
+Aha, Hunting High and Low
+Aha, Take On Me
+Aha, The Sun Always Shines On TV
+Al Green, Lets Stay Together
+Al Stewart, On The Border
+Al Stewart, Time Passages
+Al Stewart, Year Of The Cat
+Al Wilson, Show and Tell
+Alan Parsons, Eve
+Alan Parsons, Eye in the Sky
+Alan Parsons, Games People Play
+Alan Parsons, I wouldnt Want to Be Like
+Alan Parsons, Prime Time
+Alan Parsons, The Turn of a Friendly Card
+Alan Parsons, Time
+Albert Hammond, It Never Rains in So Cal
+Alive, Tighter Tighter
+All 4 One, I Swear
+Ambrosia, Holding on to Yesterday
+America, Daisy Jane
+America, I Need You
+America, Lonely People
+America, Sister Golden Hair
+America, Tin Company
+America, Ventura Highway
+Andrew Gold, Lonely Boy
+Andrew Gold, Thank You For Being a Friend
+Andy Kim, Baby I Love You
+Andy Kim, Love Me Gently
+Animotion, Obsession
+Anita Baker, Sweet love
+Anita Ward, Ring My Bell
+Annie Lennox, No More I Love Yous
+Archies, Sugar Sugar
+Arlo Guthrie, Alices restaurant
+Arlo Guthrie, City of New Orleans
+Asia, Dont Cry
+Asia, Only Time Will Tell
+Asia, The Smile Has Left Your Eye
+Atlanta Rhythm Section, Imaginary Lover
+Atlanta Rhythm Section, So Into You
+Atlantic Starr, Always
