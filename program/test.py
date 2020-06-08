@@ -1,3 +1,5 @@
+# Based on: https://machinelearningmastery.com/how-to-develop-multilayer-perceptron-models-for-time-series-forecasting/
+
 # univariate data preparation
 from numpy import array
 # from keras.models import Sequential
@@ -5,7 +7,7 @@ from numpy import array
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense
 
-length_train = 8
+length_train = 16
 
 # split a univariate sequence into samples
 def split_sequence(sequence, n_steps):
@@ -22,17 +24,39 @@ def split_sequence(sequence, n_steps):
 		y.append(seq_y)
 	return array(X), array(y)
 
-# define input sequence
-# raw_seq = [10, 20, 30, 40, 50, 60, 70, 80, 90]
-raw_seq = [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0]
+# define input sequence (choose 1)
+##Very basic input
+# raw_seq = [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0]
+##Little bit less completely basic input
+# raw_seq = [1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0]
+##Combination of the two
+raw_seq = [1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0]
+
+####This doesnt work yet: (I was trying to read from a file)
+# raw_seq = []
+
+# with open('input.txt') as input:
+# 	raw_seq = input.read().splitlines()
+# 	# raw_seq.append(input.readlines())
+
+# for i in raw_seq:
+# 	print("rawseq = ", i)
+# 	i = int(i)
+# 	print("deze is int yes no: ", isinstance(i, int))
+# print("rawseq: ", raw_seq)
+
+######This works again:
+
 # choose a number of time steps
 n_steps = length_train
 # split into samples
 X, y = split_sequence(raw_seq, n_steps)
 # summarize the data
-for i in range(len(X)):
-	print(X[i], y[i])
+# for i in range(len(X)):
+# 	print(X[i], y[i])
 
+# initialize output thing
+output = []
 
 # define model
 model = Sequential()
@@ -42,8 +66,7 @@ model.compile(optimizer='adam', loss='mse')
 # fit model
 model.fit(X, y, epochs=2000, verbose=0)
 size = len(raw_seq)-length_train
-print("size now =", size)
-maximum = 50
+maximum = 120
 i = 0
 # demonstrate prediction
 while i<size and size < maximum:
@@ -53,15 +76,12 @@ while i<size and size < maximum:
 	x_input = x_input.reshape((1, n_steps))
 	# print("x_input is then: ", x_input)
 	yhat = model.predict(x_input, verbose=0)
-	print(int(yhat))
+	# print(int(yhat))
 	raw_seq.append(int(yhat))
+	output.append(int(yhat))
 	size += 1
 	# print("size in ", i, "is now: ", size)
 	i += 1
-# x_input = array([0, 1, 0, 0])
-# x_input = x_input.reshape((1, n_steps))
-# yhat = model.predict(x_input, verbose=0)
-# toprint = int(yhat)
-# # print(yhat)
-# print(toprint)
-print(raw_seq)
+
+print("raw: ", raw_seq)
+print("output: ", output)
