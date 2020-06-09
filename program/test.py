@@ -62,9 +62,9 @@ output = []
 model = Sequential()
 model.add(Dense(100, activation='relu', input_dim=n_steps))
 model.add(Dense(1))
-model.compile(optimizer='adam', loss='mse')
+model.compile(optimizer='adam', loss='mse', metrics=['accuracy'])
 # fit model
-model.fit(X, y, epochs=2000, verbose=0)
+model.fit(X, y, epochs=12, verbose=2)
 size = len(raw_seq)-length_train
 maximum = 120
 i = 0
