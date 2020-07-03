@@ -1,8 +1,6 @@
 # Based on: https://machinelearningmastery.com/how-to-develop-multilayer-perceptron-models-for-time-series-forecasting/
 
 from numpy import array
-# from keras.models import Sequential
-# from keras.layers import Dense
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense
 import os
