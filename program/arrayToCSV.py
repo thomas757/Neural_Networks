@@ -20,7 +20,7 @@ row_list1 = [[0, 0, 'Header', 1, 1, qnotes], [1, 0, 'Start_track'], [1, 0, 'Time
              [1, 0, 'MIDI_port', 0]]
 # row_list2 = [[1, 159360, 'End_track'], [0, 0, 'End_of_file']]
 
-with open('testtest9.csv', mode='w', newline='') as test_file:
+with open('testtest11.csv', mode='w', newline='') as test_file:
     test_writer = csv.writer(test_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
 
     test_writer.writerows(row_list1)
@@ -29,8 +29,8 @@ with open('testtest9.csv', mode='w', newline='') as test_file:
     for x in range(0, len(raw_seq)):
         if raw_seq[x] == 1:
             x *= qnotes
-            test_writer.writerow(['1', x, 'Note_on_c', '9', '35', '35'])
-            test_writer.writerow(['1', x + qnotes, 'Note_off_c', '9', '35', '0'])
+            test_writer.writerow(['1', x, 'Note_on_c', '9', '37', '35'])
+            test_writer.writerow(['1', x + qnotes, 'Note_on_c', '9', '37', '0'])
 
     row_list2 = [[1, len(raw_seq)*(qnotes+1), 'End_track'], [0, 0, 'End_of_file']]
     test_writer.writerows(row_list2)
