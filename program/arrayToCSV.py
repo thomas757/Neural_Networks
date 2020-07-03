@@ -1,4 +1,14 @@
 import csv
+import sys
+
+#RUN WITH python3 arrayToCSV.py filetoread.txt filetowrite.csv
+
+
+
+file_to_read = sys.argv[1]
+file_to_write = sys.argv[2]
+
+print(file_to_read, file_to_write)
 
 ##HAS TO BE ABOVE 15 (bpm=4), 480 gives a bpm of 120
 qnotes = 480
@@ -7,10 +17,21 @@ qnotes = 480
 # raw_seq = [1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0,
 #            1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0]  # One of the
 # outputs given by the nn
-raw_seq = [1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0,
-           1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0,
-           0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0,
-           1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+# raw_seq = [1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0,
+#            1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0,
+#            0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0,
+#            1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+
+raw_seq = []
+
+f = open(file_to_read, "r")
+for x in f:
+    # print(x)
+    raw_seq.append(int(x.replace('\n', '')))
+# raw_seq = f.readline()
+print(raw_seq)
+f.close()
+
 
 # This is to add all of the important information at the beginning and end of the file
 row_list1 = [[0, 0, 'Header', 1, 1, qnotes], [1, 0, 'Start_track'], [1, 0, 'Time_signature', 4, 2, 24, 8],
@@ -20,7 +41,7 @@ row_list1 = [[0, 0, 'Header', 1, 1, qnotes], [1, 0, 'Start_track'], [1, 0, 'Time
              [1, 0, 'MIDI_port', 0]]
 # row_list2 = [[1, 159360, 'End_track'], [0, 0, 'End_of_file']]
 
-with open('testtest11.csv', mode='w', newline='') as test_file:
+with open(file_to_write, mode='w', newline='') as test_file:
     test_writer = csv.writer(test_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
 
     test_writer.writerows(row_list1)
