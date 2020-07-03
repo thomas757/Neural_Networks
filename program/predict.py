@@ -49,3 +49,9 @@ while i < size and size < maximum:
 
 print("raw: ", raw_seq)
 print("output: ", output)
+# result needs to be printed to a txt file where 1 and 0 is on a new line
+
+# @TODO: make the open function use a variable for the name, so we can change them
+file = open("prediction.txt", "w")
+np.savetxt(file, raw_seq, fmt='%d')
+file.close()
