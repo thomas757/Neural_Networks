@@ -1,6 +1,7 @@
 # Based on: https://machinelearningmastery.com/how-to-develop-multilayer-perceptron-models-for-time-series-forecasting/
 
 # univariate data preparation
+import numpy as np
 from numpy import array
 # from keras.models import Sequential
 # from keras.layers import Dense
@@ -8,7 +9,8 @@ from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense
 import os
 
-length_train = 16
+# 16 for short test sample, 200 for big_test
+length_train = 200
 
 # split a univariate sequence into samples
 def split_sequence(sequence, n_steps):
@@ -26,15 +28,14 @@ def split_sequence(sequence, n_steps):
     return array(X), array(y)
 
 # define input sequence (choose 1)
-##Very basic input
+## Very basic input
 # raw_seq = [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0]
-##Little bit less completely basic input
+## Little bit less completely basic input
 # raw_seq = [1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0]
-##Combination of the two
-raw_seq = [1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0,
-           1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0]
+## Combination of the two
+# raw_seq = [1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0]
 
-####This doesnt work yet: (I was trying to read from a file)
+#### This doesnt work yet: (I was trying to read from a file)
 # raw_seq = []
 
 # with open('input.txt') as input:
@@ -46,6 +47,9 @@ raw_seq = [1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 
 # 	i = int(i)
 # 	print("deze is int yes no: ", isinstance(i, int))
 # print("rawseq: ", raw_seq)
+
+### Trying to read from a file...again :)
+raw_seq = np.loadtxt("big_test.txt", dtype=int)
 
 ######This works again:
 
