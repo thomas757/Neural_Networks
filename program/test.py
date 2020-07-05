@@ -49,7 +49,7 @@ def split_sequence(sequence, n_steps):
 # print("rawseq: ", raw_seq)
 
 ### Trying to read from a file...again :)
-raw_seq = np.loadtxt("big_test.txt", dtype=int)
+raw_seq = np.loadtxt("big_test.txt", dtype=int).tolist()
 
 ######This works again:
 
