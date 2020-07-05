@@ -72,7 +72,7 @@ model.compile(optimizer='adam', loss='mse', metrics=['accuracy'])
 # fit model
 model.fit(X, y, epochs=12, verbose=2)
 size = len(raw_seq) - length_train
-maximum = 120
+maximum = length_train
 i = 0
 # demonstrate prediction
 while i < size and size < maximum:

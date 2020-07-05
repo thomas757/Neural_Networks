@@ -4,6 +4,8 @@ from numpy import array
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense
 import os
+import sys
+import numpy as np
 
 # split a univariate sequence into samples
 def split_sequence(sequence, n_steps):
@@ -20,23 +22,21 @@ def split_sequence(sequence, n_steps):
         y.append(seq_y)
     return array(X), array(y)
 
+# get file name from arguments
+load_file = sys.argv[1]
 
-# @TODO: implement training with batch data
 # input training data
-raw_seq = [1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0,
-           1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0]
+raw_seq = np.loadtxt(load_file, dtype=int).tolist()
 
-# the length of the samples
-length_train = 16
+
+# the length of one song
+length_train = 200
 
 # choose a number of time steps
 n_steps = length_train
 
 # split into samples
 X, y = split_sequence(raw_seq, n_steps)
-
-# initialize output array
-output = []
 
 # define model
 model = Sequential()
