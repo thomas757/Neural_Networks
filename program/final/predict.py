@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 
 import os
-import tensorflow
 import numpy as np
 from numpy import array
 from tensorflow.keras.models import load_model
@@ -68,7 +67,7 @@ while i < size and size < maximum:
 # prints the output
 print("output: ", output)
 
-# @TODO: give file name as argument
+# save the prediction
 file = open(save_file, "w")
 np.savetxt(file, raw_seq, fmt='%d')
 file.close()
