@@ -22,4 +22,4 @@ from tensorflow import data
 dataset = tf.data.TextLineDataset(["prediction.txt", "test.txt"])
 
 for element in dataset:
-    print(element)
+    print(element.numpy())
