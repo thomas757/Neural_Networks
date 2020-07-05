@@ -6,6 +6,7 @@ file_to_write = sys.argv[2]
 
 array = []
 previous = 0
+timeStep = 480
 
 with open(file_to_read, mode='r') as read_file:
     reader = csv.reader(read_file)
@@ -14,7 +15,7 @@ with open(file_to_read, mode='r') as read_file:
             timeStep = int(row[5])
         if "Note_on_c" in row or " Note_on_c" in row:
             beat = int(row[1])
-            if int(row[5]) > 0:
+            if int(row[5]) > 0 and int(row[1]) % timeStep == 0:
                 number_of_zeroes = int((beat - previous) / timeStep) - 1
                 for i in range(0, number_of_zeroes):
                     array.append(0)
