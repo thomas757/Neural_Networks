@@ -5,14 +5,13 @@ import sys
 # file_to_write = sys.argv[2]
 
 
-# @TODO Love werkt nu, Hunting niet, er gaat toch iets mis met 1 en 0 :((((((
 
 
 array = []
 previous = -30
 timeStep = 240
 
-with open('One-I_Swear.csv', mode='r') as read_file:
+with open('Turn_Turn_Turn.csv', mode='r') as read_file:
     reader = csv.reader(read_file)
     for row in reader:
         if "Header" in row or " Header" in row:
@@ -35,7 +34,7 @@ with open('One-I_Swear.csv', mode='r') as read_file:
 
 print(array)
 
-with open('swear1.txt', mode='w') as write_file:
+with open('turn1.txt', mode='w') as write_file:
     for i in range(0, len(array)):
         to_add = str(array[i]) + '\n'
         write_file.write(to_add)
