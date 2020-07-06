@@ -5,10 +5,8 @@ import sys
 # file_to_write = sys.argv[2]
 
 
-
-
 array = []
-previous = -30
+previous = -1
 timeStep = 240
 
 with open('Turn_Turn_Turn.csv', mode='r') as read_file:

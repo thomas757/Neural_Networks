@@ -54,7 +54,7 @@ with open('Test_Turn1.csv', mode='w', newline='') as test_file:
             test_writer.writerow(['1', x + enotes, 'Note_on_c', '9', '37', '0'])
             # new = True
         # elif raw_seq[x] == 0:
-            # new = True
+        # new = True
         # elif raw_seq[x] == 2 and new == True:
         #     x *= qnotes
         #     test_writer.writerow(['1', x, 'Note_on_c', '9', '37', '35'])
