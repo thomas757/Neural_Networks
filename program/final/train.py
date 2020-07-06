@@ -28,9 +28,8 @@ load_file = sys.argv[1]
 # input training data
 raw_seq = np.loadtxt(load_file, dtype=int).tolist()
 
-
 # the length of one song
-length_train = 200
+length_train = 400
 
 # choose a number of time steps
 n_steps = length_train
