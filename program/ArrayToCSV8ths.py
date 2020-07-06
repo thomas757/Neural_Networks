@@ -25,7 +25,7 @@ enotes = qnotes / 2
 
 raw_seq = []
 
-f = open('hunting5.txt', "r")
+f = open('swear1.txt', "r")
 for x in f:
     # print(x)
     raw_seq.append(int(x.replace('\n', '')))
@@ -41,7 +41,7 @@ row_list1 = [[0, 0, 'Header', 1, 1, qnotes], [1, 0, 'Start_track'], [1, 0, 'Time
              [1, 0, 'MIDI_port', 0]]
 # row_list2 = [[1, 159360, 'End_track'], [0, 0, 'End_of_file']]
 
-with open('Test_Hunting5.csv', mode='w', newline='') as test_file:
+with open('Test_Swear1.csv', mode='w', newline='') as test_file:
     test_writer = csv.writer(test_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
 
     test_writer.writerows(row_list1)

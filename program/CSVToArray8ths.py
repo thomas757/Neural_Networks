@@ -5,15 +5,14 @@ import sys
 # file_to_write = sys.argv[2]
 
 
-#@TODO Love werkt nu, Hunting niet, er gaat toch iets mis met 1 en 0 :((((((
-
+# @TODO Love werkt nu, Hunting niet, er gaat toch iets mis met 1 en 0 :((((((
 
 
 array = []
-previous = 0
+previous = -30
 timeStep = 240
 
-with open('Hunting_High_Or-Low.csv', mode='r') as read_file:
+with open('One-I_Swear.csv', mode='r') as read_file:
     reader = csv.reader(read_file)
     for row in reader:
         if "Header" in row or " Header" in row:
@@ -21,9 +20,11 @@ with open('Hunting_High_Or-Low.csv', mode='r') as read_file:
         if "Note_on_c" in row or " Note_on_c" in row:
             beat = int(row[1])
             if int(row[5]) > 0 and int(row[1]) % timeStep == 0:
-                if previous == 0:
+                if previous == -30:
+                    # print("eyo: ", previous)
                     number_of_zeroes = int((beat - previous) / timeStep)
                 else:
+                    # print("eyo2: ", previous)
                     number_of_zeroes = int((beat - previous) / timeStep) - 1
                 previous = int(row[1])
                 for i in range(0, number_of_zeroes):
@@ -34,7 +35,7 @@ with open('Hunting_High_Or-Low.csv', mode='r') as read_file:
 
 print(array)
 
-with open('hunting5.txt', mode='w') as write_file:
+with open('swear1.txt', mode='w') as write_file:
     for i in range(0, len(array)):
         to_add = str(array[i]) + '\n'
         write_file.write(to_add)
