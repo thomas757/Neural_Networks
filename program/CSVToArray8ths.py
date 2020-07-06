@@ -17,7 +17,7 @@ with open('Turn_Turn_Turn.csv', mode='r') as read_file:
         if "Note_on_c" in row or " Note_on_c" in row:
             beat = int(row[1])
             if int(row[5]) > 0 and int(row[1]) % timeStep == 0:
-                if previous == -30:
+                if previous == -1:
                     # print("eyo: ", previous)
                     number_of_zeroes = int((beat - previous) / timeStep)
                 else:
