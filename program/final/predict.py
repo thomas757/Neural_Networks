@@ -6,7 +6,7 @@ from numpy import array
 from tensorflow.keras.models import load_model
 import sys
 
-# split a univariate sequence into samples
+# split a univariate sequence into samples, might not need this?
 def split_sequence(sequence, n_steps):
     X, y = list(), list()
     for i in range(len(sequence)):
@@ -30,7 +30,7 @@ if (len(sys.argv) > 2):
 raw_seq = np.loadtxt(load_file, dtype=int).tolist()
 
 # the length of one song
-length_train = 400
+length_train = 32
 
 # choose a number of time steps
 n_steps = length_train

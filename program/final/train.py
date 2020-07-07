@@ -3,6 +3,8 @@
 from numpy import array
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense
+from tensorflow.keras.layers import Dropout
+from tensorflow.keras.optimizers import Adam
 import os
 import sys
 import numpy as np
@@ -29,7 +31,7 @@ load_file = sys.argv[1]
 raw_seq = np.loadtxt(load_file, dtype=int).tolist()
 
 # the length of one song
-length_train = 400
+length_train = 32
 
 # choose a number of time steps
 n_steps = length_train
@@ -39,8 +41,11 @@ X, y = split_sequence(raw_seq, n_steps)
 
 # define model
 model = Sequential()
-model.add(Dense(100, activation='relu', input_dim=n_steps))
-model.add(Dense(1))
+model.add(Dense(64, activation='relu', input_dim=n_steps))
+model.add(Dropout(0.1)) # https://machinelearningmastery.com/how-to-reduce-overfitting-with-dropout-regularization-in-keras/
+model.add(Dense(1)) # The output layer
+model.summary()
+opt = Adam(learning_rate=0.01)
 model.compile(optimizer='adam', loss='mse', metrics=['accuracy'])
 
 # fit model
