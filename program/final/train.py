@@ -1,5 +1,5 @@
 # Based on: https://machinelearningmastery.com/how-to-develop-multilayer-perceptron-models-for-time-series-forecasting/
-
+# Written by Isabelle Tilleman (s3656586) and Lotte Bouma (s3824853)
 from numpy import array
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense

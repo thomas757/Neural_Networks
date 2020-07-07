@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 
+# Written by Isabelle Tilleman (s3656586) and Lotte Bouma (s3824853)
 import os
 import numpy as np
 from numpy import array
