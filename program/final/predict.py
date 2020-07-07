@@ -6,6 +6,7 @@ from numpy import array
 from tensorflow.keras.models import load_model
 import sys
 
+# split a univariate sequence into samples
 def split_sequence(sequence, n_steps):
     X, y = list(), list()
     for i in range(len(sequence)):
