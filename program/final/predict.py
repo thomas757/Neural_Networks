@@ -41,8 +41,7 @@ X, y = split_sequence(raw_seq, n_steps)
 output = []
 
 # initialize parameters for predicting
-size = len(raw_seq) - length_train
-maximum = length_train * 2
+maximum = 400
 i = 0
 
 # determine the path of the network model
@@ -55,19 +54,19 @@ model = load_model(model_path)
 model.predict(np.zeros((1, length_train)))
 
 # demonstrate prediction
-while i < size and size < maximum:
+while i < maximum:
     x_input = array(raw_seq[i:(i + length_train)])
     x_input = x_input.reshape((1, n_steps))
     yhat = model.predict(x_input, verbose=0)
     raw_seq.append(int(yhat))
     output.append(int(yhat))
-    size += 1
     i += 1
 
 # prints the output
 print("output: ", output)
+print("length output: ", len(output))
 
 # save the prediction
 file = open(save_file, "w")
-np.savetxt(file, raw_seq, fmt='%d')
+np.savetxt(file, output, fmt='%d')
 file.close()
