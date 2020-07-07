@@ -2,7 +2,7 @@
 
 Our shared repository for the Neural Networks mini-project. 
 This repository was created with the sole purpose of storing and keeping track of our resources for the course Neural Networks. 
-None of its contents can be used for any other purpose than working on this project or grading this. 
+None of its contents can be used for any other purpose than work for this project by the original creators or grading of the project by Professor Herbert Jaeger and colleages. 
 
 The "data" folder contains:
 - A txt file with the names of all the songs we collected as our initial data, taken from midiworld.com
